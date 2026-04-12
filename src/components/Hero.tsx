@@ -117,27 +117,19 @@ export default function Hero() {
             <div className="absolute -top-3 -left-3 w-14 h-14 border-t-2 border-l-2 border-gold z-10" />
             <div className="absolute -bottom-3 -right-3 w-14 h-14 border-b-2 border-r-2 border-gold z-10" />
 
-            <div className="relative aspect-4/5 rounded-sm overflow-hidden bg-linear-to-b from-white/10 to-white/3 border border-white/15 backdrop-blur-sm">
-              {/* Gradient behind photo */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(ellipse at center, rgba(255,255,255,0.08) 0%, rgba(201,169,110,0.05) 40%, transparent 70%)",
-                }}
-              />
-
+            <div className="relative aspect-4/5 rounded-sm overflow-hidden border border-white/15 bg-white">
               <Image
                 src="/jun-hong.jpg"
                 alt="Jun Hong, Private Chauffeur"
                 fill
                 priority
+                quality={95}
                 sizes="(max-width: 1024px) 80vw, 40vw"
                 className="object-cover object-top"
               />
 
               {/* Bottom gradient */}
-              <div className="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-dark/80 via-dark/30 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-dark/85 via-dark/25 to-transparent" />
 
               {/* Name card */}
               <div className="absolute inset-x-6 bottom-6 flex items-end justify-between">
