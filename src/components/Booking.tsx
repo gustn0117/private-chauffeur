@@ -1,3 +1,6 @@
+import Reveal from "./Reveal";
+import SectionLabel from "./SectionLabel";
+
 const contactChannels = [
   {
     name: "WhatsApp",
@@ -8,7 +11,7 @@ const contactChannels = [
     ),
     href: "https://wa.me/821096811122",
     color: "bg-[#25D366] hover:bg-[#20bd5a]",
-    desc: "Chat on WhatsApp",
+    handle: "+82 10-9681-1122",
   },
   {
     name: "KakaoTalk",
@@ -19,7 +22,7 @@ const contactChannels = [
     ),
     href: "https://open.kakao.com/o/sExample",
     color: "bg-[#FEE500] hover:bg-[#e6cf00] text-[#3C1E1E]",
-    desc: "Chat on KakaoTalk",
+    handle: "Open Chat",
   },
   {
     name: "LINE",
@@ -30,7 +33,7 @@ const contactChannels = [
     ),
     href: "https://line.me/ti/p/~junhong",
     color: "bg-[#00B900] hover:bg-[#00a300]",
-    desc: "Chat on LINE",
+    handle: "@junhong",
   },
   {
     name: "WeChat",
@@ -41,7 +44,7 @@ const contactChannels = [
     ),
     href: "#",
     color: "bg-[#07C160] hover:bg-[#06ad56]",
-    desc: "WeChat ID: junhong",
+    handle: "ID: junhong",
   },
   {
     name: "Email",
@@ -52,53 +55,120 @@ const contactChannels = [
     ),
     href: "mailto:jun.hong1@gmail.com",
     color: "bg-[#6366f1] hover:bg-[#5558e6]",
-    desc: "jun.hong1@gmail.com",
+    handle: "jun.hong1@gmail.com",
   },
+];
+
+const quickInfo = [
+  { label: "Response", value: "Within minutes" },
+  { label: "Languages", value: "English · Korean" },
+  { label: "Availability", value: "Daily · On-demand" },
 ];
 
 export default function Booking() {
   return (
-    <section id="booking" className="py-24 lg:py-32 bg-gradient-to-br from-primary via-[#1a1a3e] to-dark text-white">
-      <div className="max-w-5xl mx-auto px-6 lg:px-12 text-center">
-        <div className="inline-block px-4 py-1.5 bg-gold/20 text-gold-light text-xs tracking-[0.2em] uppercase mb-6 rounded-sm">
-          Book Now
-        </div>
-        <h2
-          className="text-3xl sm:text-4xl font-semibold mb-4"
-          style={{ fontFamily: "var(--font-playfair)" }}
-        >
-          Book Your Private Chauffeur
-        </h2>
-        <p className="text-white/60 text-lg mb-4 max-w-xl mx-auto">
-          Reach out through your preferred messaging app
-        </p>
-        <div className="flex items-center justify-center gap-3 mb-12 text-white/80">
-          <svg className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-          </svg>
-          <span className="text-sm font-medium">+82 10-9681-1122</span>
-        </div>
+    <section
+      id="booking"
+      className="relative py-24 lg:py-32 bg-linear-to-br from-primary via-[#1a1a3e] to-dark text-white overflow-hidden"
+    >
+      <div
+        className="absolute inset-0 opacity-[0.08]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.4) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
+      <div
+        className="absolute inset-0 opacity-50 mix-blend-soft-light"
+        style={{
+          background:
+            "radial-gradient(ellipse at 20% 30%, rgba(201,169,110,0.25), transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(201,169,110,0.15), transparent 55%)",
+        }}
+      />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 max-w-4xl mx-auto">
-          {contactChannels.map((channel) => (
-            <a
-              key={channel.name}
-              href={channel.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex flex-col items-center gap-2 px-4 py-5 rounded-sm text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.03] ${channel.color}`}
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          {/* Left */}
+          <Reveal>
+            <SectionLabel number="07" label="Book Now" variant="dark" />
+            <h2
+              className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 leading-tight"
+              style={{ fontFamily: "var(--font-playfair)" }}
             >
-              {channel.icon}
-              <div className="text-center">
-                <div className="font-semibold text-sm">{channel.name}</div>
+              Book Your Private
+              <br />
+              <span className="italic text-gold">Chauffeur</span>
+            </h2>
+            <p className="text-white/70 text-lg mb-10 max-w-md leading-relaxed">
+              Reach out through your preferred messaging app — I reply quickly
+              and in fluent English.
+            </p>
+
+            <a
+              href="tel:+821096811122"
+              className="inline-flex items-center gap-4 mb-10 px-6 py-4 bg-white/5 border border-white/10 rounded-sm hover:bg-white/10 hover:border-gold/40 transition-all duration-300 group"
+            >
+              <span className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center">
+                <svg className="w-5 h-5 text-gold-light" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </span>
+              <div className="text-left">
+                <div className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-1">
+                  Direct Line
+                </div>
+                <div className="text-lg font-medium text-white group-hover:text-gold-light transition-colors">
+                  +82 10-9681-1122
+                </div>
               </div>
             </a>
-          ))}
-        </div>
 
-        <p className="mt-12 text-white/40 text-sm">
-          Click any button above to connect directly
-        </p>
+            <div className="grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
+              {quickInfo.map((q) => (
+                <div key={q.label}>
+                  <div className="text-[10px] tracking-[0.25em] uppercase text-white/40 mb-2">
+                    {q.label}
+                  </div>
+                  <div className="text-sm text-white font-medium">{q.value}</div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Right */}
+          <Reveal delay={120}>
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-sm p-6 lg:p-8">
+              <div className="flex items-center gap-3 mb-6 text-white/60">
+                <span className="block w-8 h-px bg-gold/60" />
+                <span className="text-[10px] tracking-[0.3em] uppercase">Messaging Channels</span>
+              </div>
+
+              <div className="grid gap-3">
+                {contactChannels.map((c) => (
+                  <a
+                    key={c.name}
+                    href={c.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group flex items-center gap-4 px-5 py-4 rounded-sm text-white transition-all duration-300 hover:translate-x-1 ${c.color}`}
+                  >
+                    <div className="shrink-0">{c.icon}</div>
+                    <div className="flex-1 text-left">
+                      <div className="font-semibold text-sm">{c.name}</div>
+                      <div className="text-xs opacity-80">{c.handle}</div>
+                    </div>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  </a>
+                ))}
+              </div>
+
+              <p className="mt-6 text-center text-white/40 text-xs tracking-wider">
+                Click any channel to connect directly
+              </p>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

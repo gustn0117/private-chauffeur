@@ -1,3 +1,6 @@
+import Reveal from "./Reveal";
+import SectionLabel from "./SectionLabel";
+
 type IconProps = { className?: string };
 
 const PlaneIcon = ({ className }: IconProps) => (
@@ -24,6 +27,7 @@ const pricingItems = [
     title: "Airport Transfer",
     price: "₩70,000 – ₩95,000",
     note: "Zone Fare (Incheon/Gimpo ↔ Seoul)",
+    features: ["Fixed rate", "No surge pricing", "Meet & greet"],
     highlight: true,
   },
   {
@@ -31,6 +35,7 @@ const pricingItems = [
     title: "Travel Fare",
     price: "Meter Fare",
     note: "20% surcharge applied",
+    features: ["By the meter", "Flexible route", "Per-hour option"],
     highlight: false,
   },
   {
@@ -38,72 +43,134 @@ const pricingItems = [
     title: "Private Charter",
     price: "Custom Quote",
     note: "Arranged upon request",
+    features: ["Tailored itinerary", "Multi-day", "Corporate rate"],
     highlight: false,
   },
 ];
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 lg:py-32 bg-white">
-      <div className="max-w-5xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 bg-gold/10 text-gold-dark text-xs tracking-[0.2em] uppercase mb-6 rounded-sm">
-            Pricing
+    <section id="pricing" className="relative py-24 lg:py-32 bg-white overflow-hidden">
+      <div
+        className="pointer-events-none absolute -top-10 left-4 lg:left-20 text-[12rem] lg:text-[18rem] font-normal text-primary/5 leading-none select-none"
+        style={{ fontFamily: "var(--font-playfair)" }}
+      >
+        06
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-12">
+        <Reveal>
+          <div className="text-center mb-16">
+            <div className="flex justify-center">
+              <SectionLabel number="06" label="Pricing" />
+            </div>
+            <h2
+              className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-normal text-primary mb-4"
+              style={{ fontFamily: "var(--font-playfair)" }}
+            >
+              Transparent <span className="italic text-gold">& Reliable</span>
+            </h2>
+            <p className="text-text-light text-lg max-w-xl mx-auto">
+              International Taxi officially designated by the Seoul Metropolitan Government
+            </p>
           </div>
-          <h2
-            className="text-3xl sm:text-4xl font-semibold text-primary mb-4"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
-            Transparent & Reliable Pricing
-          </h2>
-          <p className="text-text-light text-lg max-w-xl mx-auto">
-            International Taxi is officially designated by the Seoul Metropolitan Government
-          </p>
-        </div>
+        </Reveal>
 
         <div className="grid sm:grid-cols-3 gap-6">
-          {pricingItems.map((item) => (
-            <div
-              key={item.title}
-              className={`relative rounded-sm border p-8 text-center transition-all duration-300 hover:shadow-lg ${
-                item.highlight
-                  ? "border-gold bg-gradient-to-b from-gold/5 to-transparent"
-                  : "border-border hover:border-gold/30"
-              }`}
-            >
-              {item.highlight && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-white text-xs tracking-wider uppercase rounded-sm">
-                  Popular
-                </div>
-              )}
-              <item.Icon className="w-10 h-10 mb-4 mx-auto text-gold" />
-              <h3
-                className="text-lg font-semibold text-primary mb-3"
-                style={{ fontFamily: "var(--font-playfair)" }}
+          {pricingItems.map((item, i) => (
+            <Reveal key={item.title} delay={i * 100}>
+              <div
+                className={`relative rounded-sm p-8 lg:p-10 h-full transition-all duration-500 ${
+                  item.highlight
+                    ? "bg-linear-to-b from-primary to-[#1a1a3e] text-white shadow-2xl lg:-translate-y-3"
+                    : "bg-white border border-border hover:border-gold/40 hover:shadow-xl"
+                }`}
               >
-                {item.title}
-              </h3>
-              <div className="text-2xl font-bold text-gold mb-2" style={{ fontFamily: "var(--font-playfair)" }}>
-                {item.price}
+                {item.highlight && (
+                  <>
+                    <div className="absolute inset-x-0 -top-px h-0.5 bg-linear-to-r from-transparent via-gold to-transparent" />
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-white text-[10px] tracking-[0.3em] uppercase rounded-sm">
+                      Popular
+                    </div>
+                  </>
+                )}
+
+                <div
+                  className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 ${
+                    item.highlight ? "bg-gold/20 text-gold-light" : "bg-gold/10 text-gold"
+                  }`}
+                >
+                  <item.Icon className="w-6 h-6" />
+                </div>
+
+                <h3
+                  className={`text-xl font-normal mb-2 ${
+                    item.highlight ? "text-white" : "text-primary"
+                  }`}
+                  style={{ fontFamily: "var(--font-playfair)" }}
+                >
+                  {item.title}
+                </h3>
+                <p className={`text-xs ${item.highlight ? "text-white/60" : "text-text-light"}`}>
+                  {item.note}
+                </p>
+
+                <div
+                  className={`my-6 h-px ${
+                    item.highlight ? "bg-white/15" : "bg-border"
+                  }`}
+                />
+
+                <div
+                  className={`text-2xl font-normal mb-6 ${
+                    item.highlight ? "text-gold-light" : "text-gold"
+                  }`}
+                  style={{ fontFamily: "var(--font-playfair)" }}
+                >
+                  {item.price}
+                </div>
+
+                <ul className="space-y-3">
+                  {item.features.map((f) => (
+                    <li
+                      key={f}
+                      className={`flex items-center gap-3 text-sm ${
+                        item.highlight ? "text-white/80" : "text-text-light"
+                      }`}
+                    >
+                      <svg
+                        className={`w-4 h-4 ${item.highlight ? "text-gold-light" : "text-gold"}`}
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                      </svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <p className="text-text-light text-sm">{item.note}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="mt-10 text-center">
-          <p className="text-text-light text-sm">
-            For detailed fare information, visit the{" "}
-            <a
-              href="https://www.intltaxi.co.kr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gold hover:text-gold-dark underline underline-offset-2"
-            >
-              International Taxi official website
-            </a>
-          </p>
-        </div>
+        <Reveal delay={300}>
+          <div className="mt-12 text-center">
+            <p className="text-text-light text-sm">
+              For detailed fare information, visit the{" "}
+              <a
+                href="https://www.intltaxi.co.kr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold hover:text-gold-dark underline underline-offset-4 decoration-gold/40"
+              >
+                International Taxi official website
+              </a>
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

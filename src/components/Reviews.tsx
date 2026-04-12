@@ -1,3 +1,6 @@
+import Reveal from "./Reveal";
+import SectionLabel from "./SectionLabel";
+
 const reviews = [
   {
     name: "James Miller",
@@ -37,7 +40,7 @@ function getInitials(name: string) {
 
 function StarRating() {
   return (
-    <div className="flex gap-0.5 mb-3">
+    <div className="flex gap-0.5">
       {[...Array(5)].map((_, i) => (
         <svg key={i} className="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -49,40 +52,64 @@ function StarRating() {
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="py-24 lg:py-32 bg-cream">
-      <div className="max-w-6xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 bg-gold/10 text-gold-dark text-xs tracking-[0.2em] uppercase mb-6 rounded-sm">
-            Testimonials
+    <section id="reviews" className="relative py-24 lg:py-32 bg-cream overflow-hidden">
+      <div
+        className="pointer-events-none absolute -top-10 right-4 lg:right-20 text-[12rem] lg:text-[18rem] font-normal text-gold/6 leading-none select-none"
+        style={{ fontFamily: "var(--font-playfair)" }}
+      >
+        05
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-12">
+        <Reveal>
+          <div className="text-center mb-16">
+            <div className="flex justify-center">
+              <SectionLabel number="05" label="Testimonials" />
+            </div>
+            <h2
+              className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-normal text-primary mb-4"
+              style={{ fontFamily: "var(--font-playfair)" }}
+            >
+              What <span className="italic text-gold">Guests Say</span>
+            </h2>
+            <div className="flex items-center justify-center gap-3 mt-6">
+              <StarRating />
+              <span className="text-sm text-text-light">5.0 average rating</span>
+            </div>
           </div>
-          <h2
-            className="text-3xl sm:text-4xl font-semibold text-primary mb-4"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
-            What Customers Say
-          </h2>
-        </div>
+        </Reveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reviews.map((review) => (
-            <div
-              key={review.name}
-              className="bg-white rounded-sm border border-border p-7 hover:shadow-lg hover:border-gold/20 transition-all duration-300"
-            >
-              <StarRating />
-              <p className="text-text-light text-sm leading-relaxed mb-5 italic">
-                &ldquo;{review.text}&rdquo;
-              </p>
-              <div className="flex items-center gap-3 pt-4 border-t border-border">
-                <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-xs font-semibold text-gold-dark tracking-wider">
-                  {getInitials(review.name)}
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-primary">{review.name}</div>
-                  <div className="text-xs text-text-light">{review.country}</div>
+          {reviews.map((review, i) => (
+            <Reveal key={review.name} delay={i * 80}>
+              <div className="group relative h-full bg-white rounded-sm border border-border p-8 hover:shadow-xl hover:border-gold/30 transition-all duration-500 hover:-translate-y-1">
+                <span
+                  className="absolute top-4 right-6 text-7xl leading-none text-gold/15 group-hover:text-gold/30 transition-colors pointer-events-none select-none"
+                  style={{ fontFamily: "var(--font-playfair)" }}
+                >
+                  &ldquo;
+                </span>
+
+                <StarRating />
+                <p className="text-text-light text-sm leading-relaxed mt-5 mb-8 relative">
+                  {review.text}
+                </p>
+
+                <div className="flex items-center gap-3 pt-5 border-t border-border">
+                  <div className="relative">
+                    <div className="w-11 h-11 rounded-full bg-linear-to-br from-gold/30 to-gold/10 flex items-center justify-center text-xs font-semibold text-gold-dark tracking-wider border border-gold/30">
+                      {getInitials(review.name)}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-primary">{review.name}</div>
+                    <div className="text-[11px] tracking-[0.2em] uppercase text-text-light">
+                      {review.country}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

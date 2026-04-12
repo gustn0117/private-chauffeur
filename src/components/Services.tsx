@@ -1,3 +1,6 @@
+import Reveal from "./Reveal";
+import SectionLabel from "./SectionLabel";
+
 type IconProps = { className?: string };
 
 const PlaneIcon = ({ className }: IconProps) => (
@@ -26,75 +29,90 @@ const HospitalIcon = ({ className }: IconProps) => (
 
 const services = [
   {
+    num: "01",
     Icon: PlaneIcon,
     title: "Airport Transfer",
     desc: "Fixed-rate fares applied between Incheon/Gimpo Airport and Seoul. Travel with peace of mind without worrying about overcharging.",
-    color: "from-blue-50 to-blue-100/50",
-    borderColor: "hover:border-blue-200",
-    iconColor: "text-blue-600",
   },
   {
+    num: "02",
     Icon: MapIcon,
-    title: "Seoul Metropolitan Area Tour",
+    title: "Seoul Metropolitan Tour",
     desc: "Explore major attractions in Seoul and the metropolitan area where Korean tradition and modernity blend.",
-    color: "from-green-50 to-green-100/50",
-    borderColor: "hover:border-green-200",
-    iconColor: "text-green-600",
   },
   {
+    num: "03",
     Icon: BriefcaseIcon,
     title: "Business Travel",
     desc: "Premium sedan services optimized for business purposes including VIP protocol, corporate events, and long-distance business trips.",
-    color: "from-purple-50 to-purple-100/50",
-    borderColor: "hover:border-purple-200",
-    iconColor: "text-purple-600",
   },
   {
+    num: "04",
     Icon: HospitalIcon,
     title: "Medical Tourism",
-    desc: "From airport arrival to hospital transfer and hotel accommodation, we provide safe and attentive transportation services for medical visitors.",
-    color: "from-rose-50 to-rose-100/50",
-    borderColor: "hover:border-rose-200",
-    iconColor: "text-rose-600",
+    desc: "From airport arrival to hospital transfer and hotel accommodation, we provide safe and attentive transportation for medical visitors.",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 lg:py-32 bg-cream">
-      <div className="max-w-6xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 bg-gold/10 text-gold-dark text-xs tracking-[0.2em] uppercase mb-6 rounded-sm">
-            Services
-          </div>
-          <h2
-            className="text-3xl sm:text-4xl font-semibold text-primary mb-4"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
-            What I Offer
-          </h2>
-          <p className="text-text-light text-lg max-w-xl mx-auto">
-            Tailored transportation solutions for every need
-          </p>
-        </div>
+    <section id="services" className="relative py-24 lg:py-32 bg-cream overflow-hidden">
+      <div
+        className="pointer-events-none absolute -top-10 right-4 lg:right-20 text-[12rem] lg:text-[18rem] font-normal text-gold/6 leading-none select-none"
+        style={{ fontFamily: "var(--font-playfair)" }}
+      >
+        03
+      </div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className={`group p-8 bg-gradient-to-br ${service.color} rounded-sm border border-border ${service.borderColor} transition-all duration-300 hover:shadow-lg`}
-            >
-              <service.Icon className={`w-10 h-10 mb-5 ${service.iconColor}`} />
-              <h3
-                className="text-xl font-semibold text-primary mb-3"
-                style={{ fontFamily: "var(--font-playfair)" }}
-              >
-                {service.title}
-              </h3>
-              <p className="text-text-light leading-relaxed text-sm">
-                {service.desc}
-              </p>
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-12">
+        <Reveal>
+          <div className="text-center mb-16">
+            <div className="flex justify-center">
+              <SectionLabel number="03" label="Services" />
             </div>
+            <h2
+              className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-normal text-primary mb-4"
+              style={{ fontFamily: "var(--font-playfair)" }}
+            >
+              What <span className="italic text-gold">I Offer</span>
+            </h2>
+            <p className="text-text-light text-lg max-w-xl mx-auto">
+              Tailored transportation solutions for every need
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="grid md:grid-cols-2 gap-px bg-border border border-border rounded-sm overflow-hidden">
+          {services.map((service, i) => (
+            <Reveal key={service.title} delay={i * 80}>
+              <div className="group relative h-full bg-white p-10 transition-all duration-500 hover:bg-linear-to-br hover:from-white hover:to-gold/5">
+                <span className="absolute top-0 left-0 h-0.5 w-0 bg-gold transition-all duration-500 group-hover:w-full" />
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-14 h-14 rounded-full bg-primary/5 flex items-center justify-center text-primary group-hover:bg-gold group-hover:text-white transition-all duration-500">
+                    <service.Icon className="w-7 h-7" />
+                  </div>
+                  <span
+                    className="text-3xl font-normal text-gold/30 group-hover:text-gold transition-colors"
+                    style={{ fontFamily: "var(--font-playfair)" }}
+                  >
+                    {service.num}
+                  </span>
+                </div>
+                <h3
+                  className="text-2xl font-normal text-primary mb-3"
+                  style={{ fontFamily: "var(--font-playfair)" }}
+                >
+                  {service.title}
+                </h3>
+                <p className="text-text-light leading-relaxed text-sm">
+                  {service.desc}
+                </p>
+                <div className="mt-6 inline-flex items-center gap-2 text-[11px] tracking-[0.25em] uppercase text-gold-dark opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <span>Inquire</span>
+                  <span className="block w-6 h-px bg-gold" />
+                </div>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
