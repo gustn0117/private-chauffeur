@@ -2,34 +2,38 @@ const reviews = [
   {
     name: "James Miller",
     country: "USA",
-    flag: "🇺🇸",
     text: "Jun was incredibly professional and easy to communicate with from the start. His English is excellent, and he made everything smooth, from airport pickup to meetings. I didn't have to worry about anything.",
   },
   {
     name: "Claire Dubois",
     country: "France",
-    flag: "🇫🇷",
     text: "I was traveling alone and felt very comfortable with Jun. He is kind, attentive, and has a great sense of humor. It felt more like being driven by a friend than a service.",
   },
   {
     name: "Li Wei",
     country: "China",
-    flag: "🇨🇳",
     text: "Jun helped me not only with transportation but also with communication during my meetings. He is reliable, patient, and very professional. I highly recommend his service.",
   },
   {
     name: "Takashi Yamamoto",
     country: "Japan",
-    flag: "🇯🇵",
     text: "Very punctual and polite. The car was clean, and the ride was smooth. Jun's calm and respectful manner made the whole experience very pleasant.",
   },
   {
     name: "Daniel Tan",
     country: "Singapore",
-    flag: "🇸🇬",
     text: "Everything was well organized and efficient. Jun understands what travelers need and delivers a high-quality service. I would definitely use his service again.",
   },
 ];
+
+function getInitials(name: string) {
+  return name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
 
 function StarRating() {
   return (
@@ -70,8 +74,8 @@ export default function Reviews() {
                 &ldquo;{review.text}&rdquo;
               </p>
               <div className="flex items-center gap-3 pt-4 border-t border-border">
-                <div className="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-lg">
-                  {review.flag}
+                <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-xs font-semibold text-gold-dark tracking-wider">
+                  {getInitials(review.name)}
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-primary">{review.name}</div>
