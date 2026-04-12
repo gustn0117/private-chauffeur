@@ -14,10 +14,10 @@ export default function Hero() {
         }}
       />
       <div
-        className="absolute inset-0 opacity-50 mix-blend-soft-light"
+        className="absolute inset-0 opacity-40"
         style={{
           background:
-            "radial-gradient(ellipse at 75% 40%, rgba(201,169,110,0.35), transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(201,169,110,0.15), transparent 55%)",
+            "radial-gradient(ellipse at 20% 80%, rgba(201,169,110,0.18), transparent 55%)",
         }}
       />
 
@@ -123,8 +123,7 @@ export default function Hero() {
                 alt="Jun Hong, Private Chauffeur"
                 fill
                 priority
-                quality={95}
-                sizes="(max-width: 1024px) 80vw, 40vw"
+                unoptimized
                 className="object-cover object-top"
               />
 
