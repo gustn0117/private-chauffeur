@@ -27,6 +27,11 @@ const reviews = [
     country: "Singapore",
     text: "Everything was well organized and efficient. Jun understands what travelers need and delivers a high-quality service. I would definitely use his service again.",
   },
+  {
+    name: "Charlotte Evans",
+    country: "UK",
+    text: "We travelled in Seoul as a family, and Jun made everything wonderfully easy for us. He was patient, thoughtful, and especially kind to our children. The journey was comfortable and stress-free throughout. We felt very well looked after and would happily recommend him to other families visiting Seoul.",
+  },
 ];
 
 function getInitials(name: string) {

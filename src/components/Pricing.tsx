@@ -26,8 +26,12 @@ const pricingItems = [
     Icon: PlaneIcon,
     title: "Airport Transfer",
     price: "₩70,000 – ₩95,000",
-    note: "Zone Fare (Incheon/Gimpo ↔ Seoul)",
-    features: ["Fixed rate", "No surge pricing", "Meet & greet"],
+    note: "A fare determined based on your destination in Seoul",
+    features: [
+      "Fixed rate",
+      "No surge pricing",
+      "Airport pickup service (additional fee applied)",
+    ],
     highlight: true,
   },
   {

@@ -6,8 +6,8 @@ const specs = [
   { label: "Class", value: "Premium Sedan" },
   { label: "Seats", value: "Up to 3 Passengers" },
   { label: "Interior", value: "Leather, Climate" },
-  { label: "Luggage", value: "2 Large / 2 Carry-on" },
-  { label: "Amenities", value: "Wi-Fi · Water · Charger" },
+  { label: "Luggage", value: "Up to 3 Large Luggage" },
+  { label: "Amenities", value: "Water · Charger · Tissues" },
 ];
 
 export default function Vehicle() {
