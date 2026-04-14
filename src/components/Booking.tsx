@@ -1,8 +1,28 @@
+import ChannelButton from "./ChannelButton";
 import Reveal from "./Reveal";
 import SectionLabel from "./SectionLabel";
 
-const contactChannels = [
+type ChannelItem =
+  | {
+      type: "link";
+      name: string;
+      icon: React.ReactNode;
+      color: string;
+      href: string;
+      handle: string;
+    }
+  | {
+      type: "copy";
+      name: string;
+      icon: React.ReactNode;
+      color: string;
+      copyValue: string;
+      handleLabel: string;
+    };
+
+const contactChannels: ChannelItem[] = [
   {
+    type: "link",
     name: "WhatsApp",
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
@@ -14,17 +34,19 @@ const contactChannels = [
     handle: "+82 10-9681-1122",
   },
   {
+    type: "copy",
     name: "KakaoTalk",
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
         <path d="M12 3c-5.08 0-9.2 3.39-9.2 7.57 0 2.73 1.81 5.13 4.54 6.48-.2.74-.72 2.68-.82 3.1-.13.5.18.49.39.36.16-.1 2.59-1.76 3.64-2.48.47.07.96.11 1.45.11 5.08 0 9.2-3.39 9.2-7.57S17.08 3 12 3z" />
       </svg>
     ),
-    href: "http://qr.kakao.com/talk/yhAS6WEaAqu3uR4eiE8O1gZDlUI-",
+    copyValue: "eunlee0323",
+    handleLabel: "ID: eunlee0323",
     color: "bg-[#FEE500] hover:bg-[#e6cf00] text-[#191919]",
-    handle: "Scan · Open Chat",
   },
   {
+    type: "link",
     name: "LINE",
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
@@ -36,17 +58,19 @@ const contactChannels = [
     handle: "Add Friend",
   },
   {
+    type: "copy",
     name: "WeChat",
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
         <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178A1.17 1.17 0 014.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 01.598.082l1.584.926a.272.272 0 00.14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 01-.023-.156.49.49 0 01.201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-7.062-6.122zM14.87 13.13c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982zm4.82 0c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982z" />
       </svg>
     ),
-    href: "https://u.wechat.com/kI4KmHVxguW-mK8gjWZVOyw",
+    copyValue: "eunlee0323",
+    handleLabel: "ID: eunlee0323",
     color: "bg-[#07C160] hover:bg-[#06ad56]",
-    handle: "Add Contact",
   },
   {
+    type: "link",
     name: "Email",
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -148,27 +172,12 @@ export default function Booking() {
 
               <div className="grid gap-3">
                 {contactChannels.map((c) => (
-                  <a
-                    key={c.name}
-                    href={c.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group flex items-center gap-4 px-5 py-4 rounded-sm text-white transition-all duration-300 hover:translate-x-1 ${c.color}`}
-                  >
-                    <div className="shrink-0">{c.icon}</div>
-                    <div className="flex-1 text-left">
-                      <div className="font-bold text-sm">{c.name}</div>
-                      <div className="text-xs font-medium opacity-95">{c.handle}</div>
-                    </div>
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity font-bold">
-                      →
-                    </span>
-                  </a>
+                  <ChannelButton key={c.name} {...c} />
                 ))}
               </div>
 
               <p className="mt-6 text-center text-white/70 text-xs tracking-wider">
-                Click any channel to connect directly
+                Tap an ID to copy, or any link to open directly
               </p>
             </div>
           </Reveal>

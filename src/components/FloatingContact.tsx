@@ -1,9 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 
-const channels = [
+type Channel = {
+  name: string;
+  color: string;
+  textColor?: string;
+  icon: ReactNode;
+} & ({ type: "link"; href: string } | { type: "copy"; copyValue: string; idLabel: string });
+
+const channels: Channel[] = [
   {
+    type: "link",
     name: "WhatsApp",
     href: "https://wa.me/821096811122",
     color: "#25D366",
@@ -14,8 +22,10 @@ const channels = [
     ),
   },
   {
+    type: "copy",
     name: "KakaoTalk",
-    href: "http://qr.kakao.com/talk/yhAS6WEaAqu3uR4eiE8O1gZDlUI-",
+    copyValue: "eunlee0323",
+    idLabel: "ID: eunlee0323",
     color: "#FEE500",
     textColor: "#191919",
     icon: (
@@ -25,6 +35,7 @@ const channels = [
     ),
   },
   {
+    type: "link",
     name: "LINE",
     href: "https://line.me/ti/p/tMzxzV543W",
     color: "#06C755",
@@ -35,8 +46,10 @@ const channels = [
     ),
   },
   {
+    type: "copy",
     name: "WeChat",
-    href: "https://u.wechat.com/kI4KmHVxguW-mK8gjWZVOyw",
+    copyValue: "eunlee0323",
+    idLabel: "ID: eunlee0323",
     color: "#07C160",
     icon: (
       <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
@@ -45,6 +58,7 @@ const channels = [
     ),
   },
   {
+    type: "link",
     name: "Email",
     href: "mailto:jun.hong1@gmail.com",
     color: "#6366f1",
@@ -55,6 +69,51 @@ const channels = [
     ),
   },
 ];
+
+function ChannelPill({ ch }: { ch: Channel }) {
+  const [copied, setCopied] = useState(false);
+
+  const style = { backgroundColor: ch.color, color: ch.textColor || "#fff" };
+  const pillClass =
+    "flex items-center gap-3 pl-4 pr-5 py-2.5 rounded-full shadow-lg text-sm font-semibold hover:scale-105 transition-transform";
+
+  if (ch.type === "link") {
+    return (
+      <a
+        href={ch.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={pillClass}
+        style={style}
+        title={ch.name}
+      >
+        {ch.icon}
+        <span>{ch.name}</span>
+      </a>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={async () => {
+        try {
+          await navigator.clipboard.writeText(ch.copyValue);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 1800);
+        } catch {
+          /* noop */
+        }
+      }}
+      className={`${pillClass} cursor-pointer`}
+      style={style}
+      title={`${ch.name} — ${ch.idLabel}`}
+    >
+      {ch.icon}
+      <span>{copied ? "Copied!" : `${ch.name} · ${ch.idLabel}`}</span>
+    </button>
+  );
+}
 
 export default function FloatingContact() {
   const [open, setOpen] = useState(false);
@@ -67,18 +126,7 @@ export default function FloatingContact() {
         }`}
       >
         {channels.map((ch) => (
-          <a
-            key={ch.name}
-            href={ch.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 pl-4 pr-5 py-2.5 rounded-full shadow-lg text-sm font-semibold hover:scale-105 transition-transform"
-            style={{ backgroundColor: ch.color, color: ch.textColor || "#fff" }}
-            title={ch.name}
-          >
-            {ch.icon}
-            <span>{ch.name}</span>
-          </a>
+          <ChannelPill key={ch.name} ch={ch} />
         ))}
       </div>
 
