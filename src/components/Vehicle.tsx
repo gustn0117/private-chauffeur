@@ -44,10 +44,10 @@ export default function Vehicle() {
                 key={s.label}
                 className="flex items-baseline justify-between py-5 border-b border-border"
               >
-                <span className="text-[11px] tracking-[0.25em] uppercase text-text-light">
+                <span className="text-[11px] tracking-[0.25em] uppercase text-text font-semibold">
                   {s.label}
                 </span>
-                <span className="text-sm font-medium text-primary">{s.value}</span>
+                <span className="text-sm font-semibold text-primary">{s.value}</span>
               </div>
             ))}
           </div>

@@ -14,6 +14,39 @@ const contactChannels = [
     handle: "+82 10-9681-1122",
   },
   {
+    name: "KakaoTalk",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
+        <path d="M12 3c-5.08 0-9.2 3.39-9.2 7.57 0 2.73 1.81 5.13 4.54 6.48-.2.74-.72 2.68-.82 3.1-.13.5.18.49.39.36.16-.1 2.59-1.76 3.64-2.48.47.07.96.11 1.45.11 5.08 0 9.2-3.39 9.2-7.57S17.08 3 12 3z" />
+      </svg>
+    ),
+    href: "http://qr.kakao.com/talk/yhAS6WEaAqu3uR4eiE8O1gZDlUI-",
+    color: "bg-[#FEE500] hover:bg-[#e6cf00] text-[#191919]",
+    handle: "Scan · Open Chat",
+  },
+  {
+    name: "LINE",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
+        <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
+      </svg>
+    ),
+    href: "https://line.me/ti/p/tMzxzV543W",
+    color: "bg-[#06C755] hover:bg-[#04a346]",
+    handle: "Add Friend",
+  },
+  {
+    name: "WeChat",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
+        <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178A1.17 1.17 0 014.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 01.598.082l1.584.926a.272.272 0 00.14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 01-.023-.156.49.49 0 01.201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-7.062-6.122zM14.87 13.13c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982zm4.82 0c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982z" />
+      </svg>
+    ),
+    href: "https://u.wechat.com/kI4KmHVxguW-mK8gjWZVOyw",
+    color: "bg-[#07C160] hover:bg-[#06ad56]",
+    handle: "Add Contact",
+  },
+  {
     name: "Email",
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -67,7 +100,7 @@ export default function Booking() {
               <br />
               <span className="italic text-gold">Chauffeur</span>
             </h2>
-            <p className="text-white/70 text-lg mb-10 max-w-md leading-relaxed">
+            <p className="text-white/90 text-lg mb-10 max-w-md leading-relaxed">
               Reach out through your preferred messaging app — I reply quickly
               and in fluent English.
             </p>
@@ -124,10 +157,12 @@ export default function Booking() {
                   >
                     <div className="shrink-0">{c.icon}</div>
                     <div className="flex-1 text-left">
-                      <div className="font-semibold text-sm">{c.name}</div>
-                      <div className="text-xs opacity-80">{c.handle}</div>
+                      <div className="font-bold text-sm">{c.name}</div>
+                      <div className="text-xs font-medium opacity-95">{c.handle}</div>
                     </div>
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity font-bold">
+                      →
+                    </span>
                   </a>
                 ))}
               </div>

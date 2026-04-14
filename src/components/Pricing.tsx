@@ -115,7 +115,7 @@ export default function Pricing() {
                 >
                   {item.title}
                 </h3>
-                <p className={`text-xs ${item.highlight ? "text-white/60" : "text-text-light"}`}>
+                <p className={`text-xs ${item.highlight ? "text-white/85" : "text-text-light"}`}>
                   {item.note}
                 </p>
 
@@ -139,7 +139,7 @@ export default function Pricing() {
                     <li
                       key={f}
                       className={`flex items-center gap-3 text-sm ${
-                        item.highlight ? "text-white/80" : "text-text-light"
+                        item.highlight ? "text-white" : "text-text"
                       }`}
                     >
                       <svg

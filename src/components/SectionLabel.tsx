@@ -5,8 +5,8 @@ type Props = {
 };
 
 export default function SectionLabel({ number, label, variant = "light" }: Props) {
-  const numColor = variant === "dark" ? "text-white/40" : "text-gold-dark/60";
-  const lineColor = variant === "dark" ? "bg-white/20" : "bg-gold/40";
+  const numColor = variant === "dark" ? "text-gold-light/80" : "text-gold-dark";
+  const lineColor = variant === "dark" ? "bg-gold/60" : "bg-gold/60";
   const labelColor = variant === "dark" ? "text-gold-light" : "text-gold-dark";
   return (
     <div className="inline-flex items-center gap-4">

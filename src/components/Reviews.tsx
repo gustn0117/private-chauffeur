@@ -108,7 +108,7 @@ export default function Reviews() {
                   </div>
                   <div>
                     <div className="text-sm font-semibold text-primary">{review.name}</div>
-                    <div className="text-[11px] tracking-[0.2em] uppercase text-text-light">
+                    <div className="text-[11px] tracking-[0.2em] uppercase text-gold-dark font-medium">
                       {review.country}
                     </div>
                   </div>

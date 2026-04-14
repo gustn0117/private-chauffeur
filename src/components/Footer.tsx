@@ -10,7 +10,7 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-dark text-white/60">
+    <footer className="bg-dark text-white/80">
       <div className="max-w-6xl mx-auto px-6 lg:px-12 py-16">
         <div className="grid md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
@@ -30,7 +30,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3 mt-6">
               <span className="block w-10 h-px bg-gold/40" />
-              <span className="text-[10px] tracking-[0.3em] uppercase text-gold/70">
+              <span className="text-[10px] tracking-[0.3em] uppercase text-gold-light">
                 Est. Seoul
               </span>
             </div>
@@ -38,7 +38,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <div className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-5">
+            <div className="text-[10px] tracking-[0.3em] uppercase text-gold-light mb-5">
               Explore
             </div>
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5">
@@ -46,7 +46,7 @@ export default function Footer() {
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    className="text-sm text-white/70 hover:text-gold transition-colors"
+                    className="text-sm text-white/90 hover:text-gold transition-colors"
                   >
                     {l.label}
                   </a>
@@ -57,7 +57,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <div className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-5">
+            <div className="text-[10px] tracking-[0.3em] uppercase text-gold-light mb-5">
               Contact
             </div>
             <ul className="space-y-3 text-sm">
@@ -88,7 +88,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gold-light">
           <p>&copy; {new Date().getFullYear()} Jun Hong · Private Chauffeur. All rights reserved.</p>
           <p className="tracking-[0.2em] uppercase">Seoul International Taxi</p>
         </div>
