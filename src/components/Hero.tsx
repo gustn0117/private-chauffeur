@@ -35,6 +35,15 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 lg:px-12 text-center">
+        <div className="inline-flex items-center gap-2.5 px-5 py-2 mb-8 rounded-full border border-gold/40 bg-gold/10 backdrop-blur-sm animate-fade-in">
+          <svg className="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+          </svg>
+          <span className="text-gold-light text-[10px] sm:text-xs tracking-[0.2em] uppercase">
+            Officially Designated by the Seoul Metropolitan Government
+          </span>
+        </div>
+
         <h1
           className="text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-normal text-white leading-[1.05] mb-8 animate-fade-in-up tracking-tight"
           style={{ fontFamily: "var(--font-playfair)" }}
@@ -63,8 +72,13 @@ export default function Hero() {
           <span className="text-white/80 text-sm">Trusted by international travelers</span>
         </div>
 
-        <p className="max-w-2xl mx-auto text-white text-lg sm:text-xl leading-relaxed mb-12 animate-fade-in-up animation-delay-400 font-medium">
+        <p className="max-w-2xl mx-auto text-white text-lg sm:text-xl leading-relaxed mb-6 animate-fade-in-up animation-delay-400 font-medium">
           More than just a driver — a trusted partner for your journey in Seoul.
+        </p>
+
+        <p className="max-w-3xl mx-auto text-white/60 text-sm italic leading-relaxed mb-12 animate-fade-in-up animation-delay-400">
+          International Taxi is the only foreign tourist taxi service officially
+          managed by the Seoul Metropolitan Government.
         </p>
 
         {/* CTA */}

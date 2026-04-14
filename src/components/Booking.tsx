@@ -82,7 +82,7 @@ export default function Booking() {
                 </svg>
               </span>
               <div className="text-left">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-white/50 mb-1">
+                <div className="text-[10px] tracking-[0.3em] uppercase text-gold-light mb-1">
                   Direct Line
                 </div>
                 <div className="text-lg font-medium text-white group-hover:text-gold-light transition-colors">
@@ -94,7 +94,7 @@ export default function Booking() {
             <div className="grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
               {quickInfo.map((q) => (
                 <div key={q.label}>
-                  <div className="text-[10px] tracking-[0.25em] uppercase text-white/40 mb-2">
+                  <div className="text-[10px] tracking-[0.25em] uppercase text-gold-light mb-2">
                     {q.label}
                   </div>
                   <div className="text-sm text-white font-medium">{q.value}</div>
@@ -106,9 +106,11 @@ export default function Booking() {
           {/* Right */}
           <Reveal delay={120}>
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-sm p-6 lg:p-8">
-              <div className="flex items-center gap-3 mb-6 text-white/60">
-                <span className="block w-8 h-px bg-gold/60" />
-                <span className="text-[10px] tracking-[0.3em] uppercase">Messaging Channels</span>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="block w-8 h-px bg-gold" />
+                <span className="text-[10px] tracking-[0.3em] uppercase text-gold-light">
+                  Messaging Channels
+                </span>
               </div>
 
               <div className="grid gap-3">
@@ -130,7 +132,7 @@ export default function Booking() {
                 ))}
               </div>
 
-              <p className="mt-6 text-center text-white/40 text-xs tracking-wider">
+              <p className="mt-6 text-center text-white/70 text-xs tracking-wider">
                 Click any channel to connect directly
               </p>
             </div>
