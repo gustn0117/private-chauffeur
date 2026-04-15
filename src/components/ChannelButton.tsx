@@ -26,7 +26,7 @@ export default function ChannelButton(props: Props) {
     }
   };
 
-  const baseClass = `group flex items-center gap-4 px-5 py-4 rounded-sm text-white transition-all duration-300 hover:translate-x-1 ${props.color} ${props.className ?? ""}`;
+  const baseClass = `group flex items-center gap-4 px-5 py-4 rounded-sm transition-all duration-300 hover:translate-x-1 ${props.color} ${props.className ?? ""}`;
 
   if (props.type === "link") {
     return (
