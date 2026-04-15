@@ -85,10 +85,13 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-600">
           <a
             href="#booking"
-            className="group relative px-10 py-4 bg-gold text-white font-medium text-xs tracking-[0.25em] uppercase rounded-sm hover:bg-gold-dark transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 overflow-hidden"
+            className="group relative inline-flex items-center justify-center px-10 py-4 bg-gold text-white font-medium text-xs tracking-[0.25em] uppercase rounded-sm hover:bg-gold-dark transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 overflow-hidden"
           >
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 bg-linear-to-r from-gold-dark via-gold to-gold-dark"
+            />
             <span className="relative z-10">Book Your Ride</span>
-            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 bg-linear-to-r from-gold-dark via-gold to-gold-dark" />
             <span className="relative z-10 ml-2 inline-block transition-transform group-hover:translate-x-1">
               →
             </span>
