@@ -23,7 +23,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${
         scrolled
           ? "bg-white/95 backdrop-blur-md shadow-sm"
           : "bg-transparent"
@@ -124,7 +124,7 @@ export default function Header() {
           ))}
           <a
             href="#booking"
-            className="mt-4 py-3 bg-gold text-white text-sm font-medium text-center rounded-sm tracking-wide hover:bg-gold-dark transition-colors"
+            className="mt-4 block w-full py-3 bg-gold text-white text-sm font-medium text-center rounded-sm tracking-wide hover:bg-gold-dark transition-colors"
             onClick={() => setMenuOpen(false)}
           >
             Book Now
