@@ -1,3 +1,5 @@
+import HeroCTA from "./HeroCTA";
+
 export default function Hero() {
   return (
     <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-28 lg:pt-24 pb-20">
@@ -82,27 +84,7 @@ export default function Hero() {
         </p>
 
         {/* CTA */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-600">
-          <a
-            href="#booking"
-            className="group relative inline-flex items-center justify-center px-10 py-4 bg-gold text-white font-medium text-xs tracking-[0.25em] uppercase rounded-sm hover:bg-gold-dark transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 overflow-hidden"
-          >
-            <span
-              aria-hidden
-              className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 bg-linear-to-r from-gold-dark via-gold to-gold-dark"
-            />
-            <span className="relative z-10">Book Your Ride</span>
-            <span className="relative z-10 ml-2 inline-block transition-transform group-hover:translate-x-1">
-              →
-            </span>
-          </a>
-          <a
-            href="#welcome"
-            className="px-10 py-4 border border-white/20 text-white text-xs tracking-[0.25em] uppercase rounded-sm hover:bg-white/10 hover:border-gold/60 transition-all duration-300"
-          >
-            Learn More
-          </a>
-        </div>
+        <HeroCTA />
       </div>
     </section>
   );
